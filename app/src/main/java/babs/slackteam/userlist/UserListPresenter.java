@@ -1,12 +1,11 @@
-package babs.slackteam.presenter;
+package babs.slackteam.userlist;
 
 import android.util.Log;
 
 import java.util.List;
 
-import babs.slackteam.model.UserListModel;
-import babs.slackteam.services.RetrofitService;
-import babs.slackteam.services.UserListContract.View;
+import babs.slackteam.network.ApiClient;
+import babs.slackteam.userlist.UserListContract.View;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -20,30 +19,26 @@ public class UserListPresenter {
     private View mView;
     UserListModel mUserListModel;
 
-    public UserListPresenter(View view){
+    public UserListPresenter(View view) {
         mView = view;
         initPresenter();
     }
 
     private void initPresenter() {
         mUserListModel = new UserListModel();
-        mView.initViews();
     }
 
-    public void performNetworkOperation() {
-        RetrofitService retrofitService = RetrofitService.retrofit.create(RetrofitService.class);
-        Call<UserListModel> call =  retrofitService.getUsers();
-        call.enqueue(new Callback<UserListModel>() {
+    public void fetchUserList() {
+        ApiClient.getInstance().getApiService().getUsers().enqueue(new Callback<UserListModel>() {
             @Override
             public void onResponse(Call<UserListModel> call, Response<UserListModel> response) {
                 List<UserListModel.Member> memberList = response.body().getMembers();
                 mView.setMembersList(memberList);
-                Log.d(TAG, response.body().toString());
             }
 
             @Override
             public void onFailure(Call<UserListModel> call, Throwable t) {
-                Log.d(TAG, t.toString());
+                Log.e(TAG, t.getMessage());
             }
         });
     }

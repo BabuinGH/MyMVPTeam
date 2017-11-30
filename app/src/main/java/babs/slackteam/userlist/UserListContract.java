@@ -1,8 +1,6 @@
-package babs.slackteam.services;
+package babs.slackteam.userlist;
 
 import java.util.List;
-
-import babs.slackteam.model.UserListModel;
 
 /**
  * Created by babusr on 11/27/17.
@@ -10,7 +8,6 @@ import babs.slackteam.model.UserListModel;
 
 public interface UserListContract {
     interface View {
-        void initViews();
         void setMembersList(List<UserListModel.Member> memberList);
     }
 

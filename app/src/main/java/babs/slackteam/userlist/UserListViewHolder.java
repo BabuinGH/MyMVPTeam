@@ -1,4 +1,4 @@
-package babs.slackteam.view_holders;
+package babs.slackteam.userlist;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,7 +10,6 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 import babs.slackteam.R;
-import babs.slackteam.model.UserListModel;
 
 /**
  * Created by babusr on 11/27/17.
@@ -28,7 +27,7 @@ public class UserListViewHolder extends RecyclerView.ViewHolder {
         profilePhoto = itemView.findViewById(R.id.ivProfilePhoto);
     }
 
-    public void bindUsers(Context mContext, UserListModel.Member userListModel) {
+    public void bindView(Context mContext, UserListModel.Member userListModel) {
         firstName.setText(userListModel.name);
         jobTitle.setText(userListModel.profile.getTitle());
         if (userListModel.profile.getImageOriginal() != null) {

@@ -1,7 +1,4 @@
-package babs.slackteam.model;
-
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+package babs.slackteam.userlist;
 
 import java.util.List;
 
@@ -23,24 +20,10 @@ public class UserListModel {
     }
 
     public static class Profile {
-        @SerializedName("first_name")
-        @Expose
         private String firstName;
-
-        @SerializedName("last_name")
-        @Expose
         private String lastName;
-
-        @SerializedName("image_original")
-        @Expose
         private String imageOriginal;
-
-        @SerializedName("title")
-        @Expose
         private String title;
-
-        @SerializedName("real_name")
-        @Expose
         private String realName;
 
         public String getFirstName() {

@@ -1,4 +1,4 @@
-package babs.slackteam.adapters;
+package babs.slackteam.userlist;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import babs.slackteam.R;
-import babs.slackteam.model.UserListModel;
-import babs.slackteam.view_holders.UserListViewHolder;
 
 /**
  * Created by babusr on 11/27/17.
@@ -19,7 +17,7 @@ import babs.slackteam.view_holders.UserListViewHolder;
 
 public class UserListAdapter extends RecyclerView.Adapter<UserListViewHolder> {
     private Context mContext;
-    private List<UserListModel.Member> usersList = new ArrayList<>();
+    private List<UserListModel.Member> mUsersList = new ArrayList<>();
 
     public UserListAdapter(Context context){
         mContext = context;
@@ -34,16 +32,16 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListViewHolder> {
 
     @Override
     public void onBindViewHolder(UserListViewHolder holder, int position) {
-        holder.bindUsers(mContext, usersList.get(position));
+        holder.bindView(mContext, mUsersList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return usersList.size();
+        return mUsersList.size();
     }
 
     public void addMembers(List<UserListModel.Member> memberList) {
-        usersList.addAll(memberList);
+        mUsersList.addAll(memberList);
         notifyDataSetChanged();
     }
 }
