@@ -37,7 +37,6 @@ public class ApiClient {
 
 
     private void createApiService() {
-
         Gson gson = new GsonBuilder()
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .setLenient()

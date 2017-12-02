@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import babs.slackteam.R;
+import babs.slackteam.persistence.MemberModel;
 
 /**
  * Created by babusr on 11/27/17.
@@ -17,7 +18,7 @@ import babs.slackteam.R;
 
 public class UserListAdapter extends RecyclerView.Adapter<UserListViewHolder> {
     private Context mContext;
-    private List<UserListModel.Member> mUsersList = new ArrayList<>();
+    private List<MemberModel> mUsersList = new ArrayList<>();
 
     public UserListAdapter(Context context){
         mContext = context;
@@ -40,7 +41,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListViewHolder> {
         return mUsersList.size();
     }
 
-    public void addMembers(List<UserListModel.Member> memberList) {
+    public void addMembers(List<MemberModel> memberList) {
         mUsersList.addAll(memberList);
         notifyDataSetChanged();
     }

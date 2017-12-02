@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 import babs.slackteam.R;
+import babs.slackteam.persistence.MemberModel;
 
 /**
  * Created by babusr on 11/27/17.
@@ -27,7 +28,7 @@ public class UserListViewHolder extends RecyclerView.ViewHolder {
         profilePhoto = itemView.findViewById(R.id.ivProfilePhoto);
     }
 
-    public void bindView(Context mContext, UserListModel.Member userListModel) {
+    public void bindView(Context mContext, MemberModel userListModel) {
         firstName.setText(userListModel.name);
         jobTitle.setText(userListModel.profile.getTitle());
         if (userListModel.profile.getImageOriginal() != null) {

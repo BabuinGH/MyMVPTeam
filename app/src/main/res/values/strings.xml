@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SlackTeam</string>
+    <string name="app_name">Slack Team</string>
 
     <string name="first_name">First Name</string>
     <string name="job_title">Job Title</string>

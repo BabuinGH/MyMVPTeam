@@ -5,10 +5,13 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import java.util.List;
 
 import babs.slackteam.R;
+import babs.slackteam.SlackApp;
+import babs.slackteam.persistence.MemberModel;
 
 public class UserListActivity extends AppCompatActivity implements UserListContract.View {
     private static final String TAG = "UserListActivity";
@@ -33,9 +36,14 @@ public class UserListActivity extends AppCompatActivity implements UserListContr
     }
 
     @Override
-    public void setMembersList(@Nullable List<UserListModel.Member> memberList) {
+    public void setMembersList(@Nullable List<MemberModel> memberList) {
         if (memberList != null) {
             mUserListAdapter.addMembers(memberList);
+            List<MemberModel> members = SlackApp.getInstance().getDatabase().memberDao().getMembers();
+            for(MemberModel member: members){
+                Log.d("@@@@", member.name);
+            }
+
         }
     }
 }

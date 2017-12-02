@@ -4,7 +4,9 @@ import android.util.Log;
 
 import java.util.List;
 
+import babs.slackteam.SlackApp;
 import babs.slackteam.network.ApiClient;
+import babs.slackteam.persistence.MemberModel;
 import babs.slackteam.userlist.UserListContract.View;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,7 +34,10 @@ public class UserListPresenter {
         ApiClient.getInstance().getApiService().getUsers().enqueue(new Callback<UserListModel>() {
             @Override
             public void onResponse(Call<UserListModel> call, Response<UserListModel> response) {
-                List<UserListModel.Member> memberList = response.body().getMembers();
+                List<MemberModel> memberList = response.body().getMembers();
+                for (MemberModel member: memberList){
+                    SlackApp.getInstance().getDatabase().memberDao().insertMember(member);
+                }
                 mView.setMembersList(memberList);
             }
 
@@ -42,4 +47,5 @@ public class UserListPresenter {
             }
         });
     }
+
 }
