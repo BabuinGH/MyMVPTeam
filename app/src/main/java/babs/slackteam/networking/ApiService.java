@@ -1,4 +1,4 @@
-package babs.slackteam.network;
+package babs.slackteam.networking;
 
 import babs.slackteam.userlist.UserListModel;
 import retrofit2.Call;
@@ -11,7 +11,7 @@ import retrofit2.http.POST;
 public interface ApiService {
 
     /**
-     *  Fetch List of users
+     * Fetch List of users
      */
     @POST("users.list")
     Call<UserListModel> getUsers();

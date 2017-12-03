@@ -9,11 +9,9 @@ import babs.slackteam.persistence.MemberModel;
  */
 
 public interface UserListContract {
+
     interface View {
         void setMembersList(List<MemberModel> memberList);
     }
 
-    interface Presenter {
-
-    }
 }

@@ -5,16 +5,15 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import java.util.List;
 
 import babs.slackteam.R;
 import babs.slackteam.SlackApp;
+import babs.slackteam.networking.ApiClient;
 import babs.slackteam.persistence.MemberModel;
 
 public class UserListActivity extends AppCompatActivity implements UserListContract.View {
-    private static final String TAG = "UserListActivity";
     private RecyclerView mUsersRecyclerView;
     private UserListAdapter mUserListAdapter;
     UserListPresenter mUserListPresenter;
@@ -24,8 +23,11 @@ public class UserListActivity extends AppCompatActivity implements UserListContr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_list);
         initViews();
-        mUserListPresenter = new UserListPresenter(this);
-        mUserListPresenter.fetchUserList();
+        mUserListPresenter = new UserListPresenter(this,
+                SlackApp.getInstance().getMembersDatabase(),
+                ApiClient.getInstance().getApiService());
+        mUserListPresenter.onViewCreated();
+
     }
 
     private void initViews() {
@@ -33,17 +35,13 @@ public class UserListActivity extends AppCompatActivity implements UserListContr
         mUserListAdapter = new UserListAdapter(this);
         mUsersRecyclerView.setAdapter(mUserListAdapter);
         mUsersRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        mUsersRecyclerView.addOnItemTouchListener();
     }
 
     @Override
     public void setMembersList(@Nullable List<MemberModel> memberList) {
         if (memberList != null) {
             mUserListAdapter.addMembers(memberList);
-            List<MemberModel> members = SlackApp.getInstance().getDatabase().memberDao().getMembers();
-            for(MemberModel member: members){
-                Log.d("@@@@", member.name);
-            }
-
         }
     }
 }

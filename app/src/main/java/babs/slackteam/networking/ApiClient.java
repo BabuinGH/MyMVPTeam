@@ -1,4 +1,4 @@
-package babs.slackteam.network;
+package babs.slackteam.networking;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -19,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class ApiClient {
-    String BASE_URL = "https://slack.com/api/";
+    private String BASE_URL = "https://slack.com/api/";
     private static final String API_TOKEN = "Bearer xoxp-5048173296-5048487710-19045732087-b5427e3b46";
     private ApiService mApiService;
     private static ApiClient sInstance;
@@ -32,11 +32,11 @@ public class ApiClient {
     }
 
     private ApiClient() {
-        createApiService();
+        initApiService();
     }
 
 
-    private void createApiService() {
+    private void initApiService() {
         Gson gson = new GsonBuilder()
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .setLenient()

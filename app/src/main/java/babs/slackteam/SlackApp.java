@@ -1,9 +1,8 @@
 package babs.slackteam;
 
 import android.app.Application;
-import android.arch.persistence.room.Room;
 
-import babs.slackteam.persistence.MemberDatabase;
+import babs.slackteam.persistence.MembersDatabase;
 
 /**
  * Created by babusr on 12/2/17.
@@ -11,11 +10,7 @@ import babs.slackteam.persistence.MemberDatabase;
 
 public class SlackApp extends Application {
     private static SlackApp sInstance;
-    private MemberDatabase database;
-
-    public MemberDatabase getDatabase() {
-        return database;
-    }
+    private MembersDatabase mMembersDatabase;
 
     public static SlackApp getInstance() {
         return sInstance;
@@ -25,15 +20,14 @@ public class SlackApp extends Application {
     public void onCreate() {
         super.onCreate();
         sInstance = this;
-        setupDatabase();
+        initDatabase();
     }
 
-    private void setupDatabase() {
-        database = Room.databaseBuilder(this,
-                MemberDatabase.class, "Member.db")
-                .allowMainThreadQueries()
-                .build();
+    private void initDatabase() {
+        mMembersDatabase = new MembersDatabase(this);
     }
 
-
+    public MembersDatabase getMembersDatabase() {
+        return mMembersDatabase;
+    }
 }

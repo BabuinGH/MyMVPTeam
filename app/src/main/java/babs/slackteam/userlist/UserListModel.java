@@ -11,7 +11,7 @@ import babs.slackteam.persistence.MemberModel;
 
 public class UserListModel {
 
-    public List<MemberModel> members;
+    private List<MemberModel> members;
 
     public List<MemberModel> getMembers() {
         return members;

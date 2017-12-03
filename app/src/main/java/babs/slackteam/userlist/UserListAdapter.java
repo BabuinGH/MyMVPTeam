@@ -20,7 +20,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListViewHolder> {
     private Context mContext;
     private List<MemberModel> mUsersList = new ArrayList<>();
 
-    public UserListAdapter(Context context){
+    public UserListAdapter(Context context) {
         mContext = context;
     }
 
@@ -42,6 +42,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListViewHolder> {
     }
 
     public void addMembers(List<MemberModel> memberList) {
+        mUsersList.clear();
         mUsersList.addAll(memberList);
         notifyDataSetChanged();
     }
