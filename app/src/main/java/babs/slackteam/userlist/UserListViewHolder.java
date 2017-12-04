@@ -26,6 +26,7 @@ public class UserListViewHolder extends RecyclerView.ViewHolder {
         firstName = itemView.findViewById(R.id.tvFirstName);
         jobTitle = itemView.findViewById(R.id.tvJobTitle);
         profilePhoto = itemView.findViewById(R.id.ivProfilePhoto);
+
     }
 
     public void bindView(Context mContext, MemberModel userListModel) {
@@ -35,7 +36,7 @@ public class UserListViewHolder extends RecyclerView.ViewHolder {
             Glide.with(mContext).load(userListModel.profile.getImageOriginal())
                     .apply(RequestOptions.circleCropTransform()).into(profilePhoto);
         } else {
-            Glide.with(mContext).load(R.drawable.ic_slack_bot)
+            Glide.with(mContext).load(R.drawable.slack_bot1)
                     .apply(RequestOptions.circleCropTransform()).into(profilePhoto);
         }
 

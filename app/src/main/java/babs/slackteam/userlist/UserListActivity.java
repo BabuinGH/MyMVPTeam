@@ -36,6 +36,8 @@ public class UserListActivity extends AppCompatActivity implements UserListContr
         mUsersRecyclerView.setAdapter(mUserListAdapter);
         mUsersRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 //        mUsersRecyclerView.addOnItemTouchListener();
+//        Intent intent = new Intent(UserListActivity.this, UserDetailActivity.class);
+//        startActivity(intent);
     }
 
     @Override
