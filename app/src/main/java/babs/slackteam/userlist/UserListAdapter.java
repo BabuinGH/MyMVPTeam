@@ -46,4 +46,8 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListViewHolder> {
         mUsersList.addAll(memberList);
         notifyDataSetChanged();
     }
+
+    public MemberModel getItem(int position){
+       return mUsersList.get(position);
+    }
 }

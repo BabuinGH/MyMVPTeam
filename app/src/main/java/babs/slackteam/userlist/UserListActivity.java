@@ -1,21 +1,29 @@
 package babs.slackteam.userlist;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import java.util.List;
 
 import babs.slackteam.R;
 import babs.slackteam.SlackApp;
+import babs.slackteam.helpers.RecyclerTouchListener;
+import babs.slackteam.helpers.RecyclerViewClickListener;
 import babs.slackteam.networking.ApiClient;
 import babs.slackteam.persistence.MemberModel;
+import babs.slackteam.userdetail.UserDetailActivity;
 
 public class UserListActivity extends AppCompatActivity implements UserListContract.View {
+    public static final String MEMBER_ID = "memberId";
     private RecyclerView mUsersRecyclerView;
     private UserListAdapter mUserListAdapter;
+    private Toolbar mToolbar;
     UserListPresenter mUserListPresenter;
 
     @Override
@@ -23,6 +31,7 @@ public class UserListActivity extends AppCompatActivity implements UserListContr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_list);
         initViews();
+        setupToolbar();
         mUserListPresenter = new UserListPresenter(this,
                 SlackApp.getInstance().getMembersDatabase(),
                 ApiClient.getInstance().getApiService());
@@ -30,14 +39,38 @@ public class UserListActivity extends AppCompatActivity implements UserListContr
 
     }
 
+
     private void initViews() {
+        mToolbar = findViewById(R.id.tbUserList);
         mUsersRecyclerView = findViewById(R.id.rvUsersList);
         mUserListAdapter = new UserListAdapter(this);
         mUsersRecyclerView.setAdapter(mUserListAdapter);
         mUsersRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        mUsersRecyclerView.addOnItemTouchListener();
-//        Intent intent = new Intent(UserListActivity.this, UserDetailActivity.class);
-//        startActivity(intent);
+
+        mUsersRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(this, mUsersRecyclerView, new RecyclerViewClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                MemberModel member = mUserListAdapter.getItem(position);
+                String memberId = member.id;
+                transitionToMemberDetail(memberId);
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+            }
+        }));
+    }
+
+
+    private void setupToolbar() {
+        mToolbar.setTitle(R.string.app_name);
+        mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
+    }
+
+    private void transitionToMemberDetail(String memberId) {
+        Intent intent = new Intent(UserListActivity.this, UserDetailActivity.class);
+        intent.putExtra(MEMBER_ID, memberId);
+        startActivity(intent);
     }
 
     @Override

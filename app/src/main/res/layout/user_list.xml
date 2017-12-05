@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rvUsersList"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/light_grey">
+    android:layout_height="match_parent">
 
-</android.support.v7.widget.RecyclerView>
+    <include
+        android:id="@+id/tbUserList"
+        layout="@layout/toolbar" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvUsersList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tbUserList"
+        android:background="@color/light_grey" />
+
+</RelativeLayout>

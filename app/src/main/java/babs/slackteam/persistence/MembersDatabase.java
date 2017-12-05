@@ -41,11 +41,17 @@ public class MembersDatabase {
 
     }
 
+    public MemberModel getMember(String id){
+        List<MemberModel> memberModel = mDatabase.memberDao().getMember(id);
+        return memberModel.get(0);
+    }
+
 
     private void initDatabase(Context applicationContext) {
         mDatabase = Room.databaseBuilder(applicationContext,
                 MemberRoomDatabase.class, "Member.db")
                 .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
                 .build();
     }
 

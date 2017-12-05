@@ -21,6 +21,10 @@ public class MemberModel {
     @ColumnInfo(name = "name")
     public String name;
 
+    public String getName() {
+        return name;
+    }
+
     @Embedded
     public Profile profile;
 
@@ -39,6 +43,12 @@ public class MemberModel {
 
         @ColumnInfo(name = "real_name")
         private String realName;
+
+        @ColumnInfo(name = "email")
+        private String email;
+
+        @ColumnInfo(name = "phone")
+        private String phone;
 
         public String getFirstName() {
             return firstName;
@@ -79,5 +89,22 @@ public class MemberModel {
         public void setRealName(String realName) {
             this.realName = realName;
         }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
+        }
+
+        public String getPhone() {
+            return phone;
+        }
+
+        public void setPhone(String phone) {
+            this.phone = phone;
+        }
     }
+
 }

@@ -27,4 +27,10 @@ public interface MemberDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertMember(MemberModel member);
 
+    /**
+     * Get member based on id from database.
+     */
+    @Query("SELECT * from member WHERE id IN (:id) ")
+    List<MemberModel> getMember(String id);
+
 }
