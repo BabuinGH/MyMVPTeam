@@ -1,6 +1,6 @@
-package babs.slackteam.userdetail;
+package babs.mvpteam.userdetail;
 
-import babs.slackteam.persistence.MemberModel;
+import babs.mvpteam.persistence.MemberModel;
 
 /**
  * Created by babusr on 12/3/17.

@@ -1,18 +1,18 @@
-package babs.slackteam;
+package babs.mvpteam;
 
 import android.app.Application;
 
-import babs.slackteam.persistence.MembersDatabase;
+import babs.mvpteam.persistence.MembersDatabase;
 
 /**
  * Created by babusr on 12/2/17.
  */
 
-public class SlackApp extends Application {
-    private static SlackApp sInstance;
+public class MVPTeamApp extends Application {
+    private static MVPTeamApp sInstance;
     private MembersDatabase mMembersDatabase;
 
-    public static SlackApp getInstance() {
+    public static MVPTeamApp getInstance() {
         return sInstance;
     }
 

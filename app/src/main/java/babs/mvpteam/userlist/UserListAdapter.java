@@ -1,4 +1,4 @@
-package babs.slackteam.userlist;
+package babs.mvpteam.userlist;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import babs.slackteam.R;
-import babs.slackteam.persistence.MemberModel;
+import babs.mvpteam.R;
+import babs.mvpteam.persistence.MemberModel;
 
 /**
  * Created by babusr on 11/27/17.

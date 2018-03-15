@@ -1,4 +1,4 @@
-package babs.slackteam.persistence;
+package babs.mvpteam.persistence;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Embedded;

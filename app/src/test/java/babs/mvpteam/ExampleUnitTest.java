@@ -1,4 +1,4 @@
-package babs.slackteam;
+package babs.mvpteam;
 
 import org.junit.Test;
 

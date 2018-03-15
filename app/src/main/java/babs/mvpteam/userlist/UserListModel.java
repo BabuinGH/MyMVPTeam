@@ -1,9 +1,9 @@
-package babs.slackteam.userlist;
+package babs.mvpteam.userlist;
 
 
 import java.util.List;
 
-import babs.slackteam.persistence.MemberModel;
+import babs.mvpteam.persistence.MemberModel;
 
 /**
  * Created by babusr on 11/26/17.

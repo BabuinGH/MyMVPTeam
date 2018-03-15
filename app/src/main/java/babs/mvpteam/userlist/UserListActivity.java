@@ -1,4 +1,4 @@
-package babs.slackteam.userlist;
+package babs.mvpteam.userlist;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,13 +11,13 @@ import android.view.View;
 
 import java.util.List;
 
-import babs.slackteam.R;
-import babs.slackteam.SlackApp;
-import babs.slackteam.helpers.RecyclerTouchListener;
-import babs.slackteam.helpers.RecyclerViewClickListener;
-import babs.slackteam.networking.ApiClient;
-import babs.slackteam.persistence.MemberModel;
-import babs.slackteam.userdetail.UserDetailActivity;
+import babs.mvpteam.R;
+import babs.mvpteam.MVPTeamApp;
+import babs.mvpteam.helpers.RecyclerTouchListener;
+import babs.mvpteam.helpers.RecyclerViewClickListener;
+import babs.mvpteam.networking.ApiClient;
+import babs.mvpteam.persistence.MemberModel;
+import babs.mvpteam.userdetail.UserDetailActivity;
 
 public class UserListActivity extends AppCompatActivity implements UserListContract.View {
     public static final String MEMBER_ID = "memberId";
@@ -33,7 +33,7 @@ public class UserListActivity extends AppCompatActivity implements UserListContr
         initViews();
         setupToolbar();
         mUserListPresenter = new UserListPresenter(this,
-                SlackApp.getInstance().getMembersDatabase(),
+                MVPTeamApp.getInstance().getMembersDatabase(),
                 ApiClient.getInstance().getApiService());
         mUserListPresenter.onViewCreated();
 

@@ -1,13 +1,13 @@
-package babs.slackteam.userlist;
+package babs.mvpteam.userlist;
 
 import android.util.Log;
 
 import java.util.List;
 
-import babs.slackteam.networking.ApiService;
-import babs.slackteam.persistence.MemberModel;
-import babs.slackteam.persistence.MembersDatabase;
-import babs.slackteam.userlist.UserListContract.View;
+import babs.mvpteam.networking.ApiService;
+import babs.mvpteam.persistence.MemberModel;
+import babs.mvpteam.persistence.MembersDatabase;
+import babs.mvpteam.userlist.UserListContract.View;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

@@ -1,4 +1,4 @@
-package babs.slackteam;
+package babs.mvpteam;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

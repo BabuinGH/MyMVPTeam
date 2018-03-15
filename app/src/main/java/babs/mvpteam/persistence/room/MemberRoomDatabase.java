@@ -1,9 +1,9 @@
-package babs.slackteam.persistence.room;
+package babs.mvpteam.persistence.room;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;
 
-import babs.slackteam.persistence.MemberModel;
+import babs.mvpteam.persistence.MemberModel;
 
 /**
  * Created by babusr on 12/2/17.

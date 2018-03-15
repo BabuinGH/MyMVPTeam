@@ -1,4 +1,4 @@
-package babs.slackteam.helpers;
+package babs.mvpteam.helpers;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

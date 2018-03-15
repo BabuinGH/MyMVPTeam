@@ -1,4 +1,4 @@
-package babs.slackteam.userdetail;
+package babs.mvpteam.userdetail;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,10 +11,10 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
-import babs.slackteam.R;
-import babs.slackteam.SlackApp;
-import babs.slackteam.persistence.MemberModel;
-import babs.slackteam.userlist.UserListActivity;
+import babs.mvpteam.R;
+import babs.mvpteam.MVPTeamApp;
+import babs.mvpteam.persistence.MemberModel;
+import babs.mvpteam.userlist.UserListActivity;
 import jp.wasabeef.glide.transformations.BlurTransformation;
 
 /**
@@ -40,7 +40,7 @@ public class UserDetailActivity extends AppCompatActivity implements UserDetailC
 
         String memberId = getIntent().getStringExtra(UserListActivity.MEMBER_ID);
         mUserDetailPresenter = new UserDetailPresenter(this,
-                SlackApp.getInstance().getMembersDatabase());
+                MVPTeamApp.getInstance().getMembersDatabase());
         mUserDetailPresenter.getMember(memberId);
     }
 

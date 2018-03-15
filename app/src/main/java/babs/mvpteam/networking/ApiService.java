@@ -1,6 +1,6 @@
-package babs.slackteam.networking;
+package babs.mvpteam.networking;
 
-import babs.slackteam.userlist.UserListModel;
+import babs.mvpteam.userlist.UserListModel;
 import retrofit2.Call;
 import retrofit2.http.POST;
 

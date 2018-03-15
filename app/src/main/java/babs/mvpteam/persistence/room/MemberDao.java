@@ -1,4 +1,4 @@
-package babs.slackteam.persistence.room;
+package babs.mvpteam.persistence.room;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
@@ -7,7 +7,7 @@ import android.arch.persistence.room.Query;
 
 import java.util.List;
 
-import babs.slackteam.persistence.MemberModel;
+import babs.mvpteam.persistence.MemberModel;
 
 /**
  * Created by babusr on 12/2/17.
